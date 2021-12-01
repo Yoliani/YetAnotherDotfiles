@@ -1,0 +1,55 @@
+{
+	"contentrating" : "Everyone",
+	"file" : "scene.json",
+	"general" : 
+	{
+		"properties" : 
+		{
+			"dustmotesvisibility" : 
+			{
+				"index" : 0,
+				"order" : 100,
+				"text" : "Dust Motes (Visibility)",
+				"type" : "bool",
+				"value" : true
+			},
+			"sakurax1visibility" : 
+			{
+				"index" : 1,
+				"order" : 101,
+				"text" : "Sakura x1 (Visibility)",
+				"type" : "bool",
+				"value" : true
+			},
+			"sakurax2visibility" : 
+			{
+				"index" : 2,
+				"order" : 102,
+				"text" : "Sakura x2 (Visibility)",
+				"type" : "bool",
+				"value" : true
+			},
+			"sakurax3visibility" : 
+			{
+				"index" : 3,
+				"order" : 103,
+				"text" : "Sakura x3 (Visibility)",
+				"type" : "bool",
+				"value" : true
+			},
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "0.18824 0.18824 0.43137"
+			}
+		}
+	},
+	"preview" : "preview.jpg",
+	"tags" : [ "Fantasy" ],
+	"title" : "Principio y Fin.",
+	"type" : "scene",
+	"version" : 0,
+	"visibility" : "public"
+}

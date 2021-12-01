@@ -1,0 +1,23 @@
+{
+	"contentrating" : "Everyone",
+	"description" : "Hi peeps couldnt bring you the pic i wanted to today im still working on it but heres another hope you enjoy it. Heres the link to the music i do not own it https://www.youtube.com/watch?v=fz7UFMasbNI",
+	"file" : "scene.json",
+	"general" : 
+	{
+		"properties" : 
+		{
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "0.85882 0.55294 0.25098"
+			}
+		}
+	},
+	"preview" : "preview.gif",
+	"tags" : [ "Anime" ],
+	"title" : "Demon Slayer Kimetsu no Yaiba Rengoku",
+	"type" : "scene",
+	"version" : 0
+}

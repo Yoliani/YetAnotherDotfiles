@@ -1,0 +1,200 @@
+
+#################################
+#          Animations           #
+#################################
+# requires https://github.com/jonaburg/picom
+# (These are also the default values)
+
+#################################
+#             Shadows           #
+#################################
+
+
+shadow = false;
+
+# The blur radius for shadows, in pixels. (defaults to 12)
+# shadow-radius = 12
+shadow-radius = 5;
+shadow-opacity = .75;
+
+shadow-offset-x = -5;
+
+
+shadow-offset-y = -5;
+
+
+# shadow-exclude = []
+shadow-exclude = [
+  "name = 'Notification'",
+	"class_g *?= 'slop'",
+  "class_g = 'Conky'",
+  "class_g ?= 'Notify-osd'",
+  "class_g = 'Cairo-clock'",
+  "_GTK_FRAME_EXTENTS@:c",
+  "class_g = 'dmenu'",
+  "class_g = 'rofi'",
+  "class_g = 'Polybar'"
+];
+#################################
+#           Fading              #
+#################################
+
+
+fading = false;
+
+#fade-in-step = 0.056;
+fade-in-step = 0.040;
+
+fade-out-step = 0.040;
+inactive-dim = 0.13
+
+#################################
+#   Transparency / Opacity      #
+#################################
+
+# Opacity of inactive windows. (0.1 - 1.0, defaults to 1.0)
+# inactive-opacity = 1
+inactive-opacity = 1;
+
+# Opacity of window titlebars and borders. (0.1 - 1.0, disabled by default)
+# frame-opacity = 1.0
+frame-opacity = 1;
+
+# Default opacity for dropdown menus and popup menus. (0.0 - 1.0, defaults to 1.0)
+
+# Let inactive opacity set by -i override the '_NET_WM_OPACITY' values of windows.
+# inactive-opacity-override = true
+inactive-opacity-overide = false;
+
+# Default opacity for active windows. (0.0 - 1.0, defaults to 1.0)
+active-opacity = 1.0;
+
+# Dim inactive windows. (0.0 - 1.0, defaults to 0.0)
+#inactive-dim = 0.0;
+
+# Specify a list of conditions of windows that should always be considered focused.
+# focus-exclude = []
+focus-exclude = [ "class_g = 'slop'", "class_g = 'Cairo-clock'", "class_g = 'rofi'", "class_g = 'dmenu'" ];
+
+# Use fixed inactive dim value, instead of adjusting according to window opacity.
+# inactive-dim-fixed = 0.5
+
+# Specify a list of opacity rules, in the format `PERCENT:PATTERN`,
+# like `50:name *= "Firefox"`. picom-trans is recommended over this.
+# Note we don't make any guarantee about possible conflicts with other
+# programs that set '_NET_WM_WINDOW_OPACITY' on frame or client windows.
+# example:
+opacity-rule = [ 
+  "50:class_g = 'Bspwm' && class_i = 'presel_feedback'",
+ "100:class_g = 'Alacritty' && focused",
+ "100:class_g = 'Alacritty' && !focused",
+  "100:class_g = 'Code' && focused",
+  "100:class_g = 'Code' && !focused",
+  "100:class_g = 'Brave-browser' && !focused",
+  "100:class_g = 'Brave-browser' && focused",
+  "100:class_g = 'Bspwm' && !focused",
+  "100:class_g = 'Bspwm' && focused"
+];
+#
+ opacty-rule = ["85:class_g ?= 'Alacritty' && focused"];
+
+
+#################################
+#     Background-Blurring       #
+#################################
+
+
+# Parameters for background blurring, see the *BLUR* section for more information.
+blur-method = "dual_kawase";
+blur-strength = 7;
+blur-size = 12
+blur-background = true;
+blur-radius = 60;
+blur-background-frame = true;
+blur-background-fixed = false;
+#
+# blur-deviation = false
+
+
+blur-kern = "7x7box";
+
+# Exclude conditions for background blur.
+# blur-background-exclude = []
+blur-background-exclude = [
+  "window_type = 'dock'",
+  "class_g ~= 'slop'",
+  "class_i ~= 'slop'",
+  "name ~= 'slop'",
+  "window_type = 'desktop'",
+  "_GTK_FRAME_EXTENTS@:c",
+  "class_g = 'Bspwm' && class_i = 'presel_feedback'",
+];
+
+#################################
+#       General Settings        #
+#################################
+
+#
+#backend = 'glx'
+backend = "glx";
+glx-no-stencil = true;
+glx-copy-from-front = false;
+glx-no-rebind-pixmap = true;
+#backend = "xrender";
+
+vsync = false
+
+
+# mark-wmwin-focused = false
+mark-wmwin-focused = true;
+
+# Mark override-redirect windows that doesn't have a child window with 'WM_STATE' focused.
+mark-ovredir-focused = false;
+
+detect-rounded-corners = true;
+
+
+detect-client-opacity = true;
+
+# Specify refresh rate of the screen. If not specified or 0, picom will
+# try detecting this with X RandR extension.
+#
+# refresh-rate = 60
+refresh-rate = 0;
+detect-transient = true;
+
+# Use 'WM_CLIENT_LEADER' to group windows, and consider windows in the same
+# group focused at the same time. 'WM_TRANSIENT_FOR' has higher priority if
+# detect-transient is enabled, too.
+#
+# detect-client-leader = false
+detect-client-leader = true;
+use-damage = true;
+
+
+log-level = "warn";
+
+
+#
+wintypes:
+{
+  tooltip = { fade = true; shadow = true; opacity = 0.75; focus = true; full-shadow = false; };
+  dock = { shadow = false; }
+  dnd = { shadow = false; }
+  popup_menu = { opacity = 1.0; }
+  dropdown_menu = { opacity = 1.0; }
+  normal: { blur-background = true;};
+  splash: {blur-background = false;};
+};
+
+corner-radius = 5.0;
+rounded-corners-exclude = [
+  "window_type = 'normal'",
+  #"class_g = 'rofi'",
+  #"class_g = 'XTerm'",
+  "class_g = 'Polybar'",
+  #"class_g = 'code-oss'",
+  #"class_g = 'TelegramDesktop'",
+  "class_g = 'google-chrome'"
+  #"class_g = 'Thunderbird'"
+];
