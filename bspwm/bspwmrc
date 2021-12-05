@@ -13,7 +13,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 #Blue-sky
 bspc config border_width         1
-bspc config window_gap          5
+bspc config window_gap          4
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
@@ -41,7 +41,10 @@ picom &
 killall "polybar"
 #polybar bytee &
 #polybar bytee2 &
-polybar -c /home/edgardoyoliani/.config/polybar/placidity-plus/config.ini main &
+#polybar -c /home/edgardoyoliani/.config/polybar/placidity-plus/config.ini main &
+
+polybar -c /home/edgardoyoliani/.config/polybar/config.ini -rq bar &
+
 #polybar example
 #Custom
 bspc config focus_follows_pointer true
