@@ -141,6 +141,15 @@ alias gcm='git commit -m'
 alias gp='git push'
 alias chrome='google-chrome-stable'
 
+
+alias ils='logo-ls'
+alias ila='logo-ls -A'
+alias ill='logo-ls -al'
+# equivalents with Git Status on by Default
+alias ilsg='logo-ls -D'
+alias ilag='logo-ls -AD'
+alias illg='logo-ls -alD'
+
 function acp() {
   git add .
   git commit -m "$1"
