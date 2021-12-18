@@ -1,1 +1,1 @@
-# MY ENDEAVOUROS DOTFILES
+# Yet Another Dotfiles
