@@ -8,7 +8,7 @@ Dot Files for Padsworth reddit: Edgardo-Dolphin
 |    **Shell**     | zsh, zinit                                    |
 |      **WM**      | [bspwm](https://github.com/baskerville/bspwm) |
 |     **Bar**      | [polybar](https://polybar.github.io/)         |
-| **Text Editor**  | [Vim](https://www.vim.org/)                   |
+| **Text Editor**  | [Neovim](https://neovim.io/)                  |
 |    **Docker**    | [Dunst](https://dunst-project.org/)           |
 | **File Manager** | [Ranger](https://github.com/ranger/ranger)    |
 |  **PDF Reader**  | [zathura](https://pwmt.org/projects/zathura/) |
@@ -28,6 +28,13 @@ Dot Files for Padsworth reddit: Edgardo-Dolphin
 
 ## Screenshots:
 
+- Dual monitors
+
 ### BSPWM
 
 ![yet-another-dotfiles](https://github.com/Yoliani/YetAnotherDotfiles/blob/main/assets/neofecth.png)
+![yet-another-dotfiles-monitor-2](https://github.com/Yoliani/YetAnotherDotfiles/blob/main/assets/2monitor.png)
+
+### Neovim config
+
+- [My Neovim Config](https://github.com/Yoliani/YetAnotherNeovimConfig)
