@@ -128,7 +128,7 @@ export PATH="$(yarn global bin):$PATH"
 #
 alias ..='cd ..'
 alias sl='ls'
-alias ll='ls -Ahl'
+#alias ll='ls -Ahl'
 alias mv='mv -v'
 alias rm='rm -vi'
 alias cp='cp -v'
@@ -142,9 +142,9 @@ alias gp='git push'
 alias chrome='google-chrome-stable'
 
 
-alias ils='logo-ls'
-alias ila='logo-ls -A'
-alias ill='logo-ls -al'
+alias ls='logo-ls'
+alias la='logo-ls -A'
+alias ll='logo-ls -al'
 # equivalents with Git Status on by Default
 alias ilsg='logo-ls -D'
 alias ilag='logo-ls -AD'
