@@ -21,7 +21,7 @@ set $path_scripts ~/scripts
 font pango:Iosevka Nerd Font 10
 
 #Rofi 
-set $menu rofi -show drun 
+set $menu wofi --show=drun --lines=5 --prompt=""
 
 #keys
 set $external_key Control
@@ -210,7 +210,17 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+# -----------------------------Scratchpad -------------------------------
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
 
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
 
 #
 # ----------------------------------Status Bar --------------------------------
@@ -229,16 +239,31 @@ bindsym $mod+r mode "resize"
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
-bar {
-  position top
-  swaybar_command waybar 
-}
+# bar {
+#   position top
+#   swaybar_command waybar 
+# }
+# -----------------------------Lockscreen-----------------------------
+bindsym $mod+l exec bash /home/edgardoyoliani/.config/sway/backup/lock.sh
+
+#------------------------------- Media controls-----------------------------
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86Search exec wofi --show drun -G -I -m -d
+bindsym XF86MonBrightnessUp exec light -A 1
+bindsym XF86MonBrightnessDown exec light -U 1
 
 # --------------------------------Utilities -------------------------
 exec dunst &
 exec wl-paste -t text --watch clipman store --no-persis
-
-
+exec playerctld &
+exec waybar
 
 
 

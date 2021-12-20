@@ -1,0 +1,123 @@
+{
+    "height": 20, // Waybar height (to be removed for auto height)
+    "modules-left": ["sway/workspaces", "custom/media"],
+    "modules-center": [],
+    "modules-right": ["idle_inhibitor", "sway/language", "pulseaudio", "cpu", "memory", "network", "tray", "clock"],
+
+    // Modules configuration
+     "sway/workspaces": {
+         "disable-scroll": false,
+         "all-outputs": true,
+         "format": "{icon}",
+         "format-icons": {
+             "1": " ",
+             "2": " ",
+             "3": " ﭮ",
+             "4": " ",
+             "5": " ",
+             "6": " ",
+             "7": " ",
+             "8": " ",
+             "9": " ",
+             "10": " ",
+             "urgent": " ",
+             "focused": " ",
+             "default": " "
+         }
+     },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/language": {
+        "format": "{short} ⠀⠀"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        }
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	"format": "{:%H:%M}  ",
+	"format-alt": "{:%A, %B %d, %Y}  "
+    },
+    "cpu": {
+        "format": "{usage}%  ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{usage}%  "
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [" ", " ", " "]
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "tooltip-format": "{timeTo}, {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-wifi": "直 ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "睊 ",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{essid} {signalStrength}%"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": "   {volume}% {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": " ",
+        "format-source-muted": " ",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " ", " "]
+        },
+        "tooltip-format": "{desc}, {volume}%",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-click-middle": "pavucontrol"
+    },
+ "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> 
+        // /dev/null" // Filter player based on name
+    },
+    "custom/fans": {
+        "format": "{}",
+        "exec": "$HOME/.config/waybar/fans.sh",
+        "escape": true,
+        "restart-interval": 10,
+    }
+}
+

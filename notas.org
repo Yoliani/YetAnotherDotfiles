@@ -1,0 +1,8 @@
+* Para gnome: 
+
+
+
+sudo pacman -S gnome gnome-extra gnome-tweak-tool gnome-shell-extensions gnome-shell-extension-dash-to-panel gnome-shell-extension-dashtodock gnome-shell-extension-user-theme gnome-shell-
+
+
+hola

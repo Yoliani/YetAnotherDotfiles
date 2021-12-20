@@ -39,10 +39,12 @@ killall "picom"
 sxhkd -c &
 picom &
 killall "polybar"
+killall "conky" 
+
 #polybar bytee &
 #polybar bytee2 &
 #polybar -c /home/edgardoyoliani/.config/polybar/placidity-plus/config.ini main &
-
+conky &
 polybar -c /home/edgardoyoliani/.config/polybar/config.ini -rq bar &
 
 #polybar example
