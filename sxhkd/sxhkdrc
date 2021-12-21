@@ -4,8 +4,9 @@
 
 # terminal emulator
 super + Return
-	kitty
-	#alacritty
+ alacritty
+	#kitty
+	
 
 
 # program launcher
@@ -18,7 +19,7 @@ super + Escape
 
 #Brave
 super + d
-	brave-browser
+	brave
 
 #
 # bspwm hotkeys

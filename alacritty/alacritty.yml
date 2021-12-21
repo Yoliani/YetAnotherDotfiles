@@ -45,9 +45,9 @@ cursor:
 font:
   normal:
     #family: SauceCodePro Nerd Font
-    #family: Liga SFMono Nerd Font
+    family: Liga SFMono Nerd Font
     #family: VictorMono Nerd Font
-    family: JetBrains Mono Nerd Font
+    #family: JetBrains Mono Nerd Font
     #family: Hack NF
     style: Regular
   size: 10

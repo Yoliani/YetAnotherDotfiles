@@ -20,9 +20,8 @@ set $path_scripts ~/scripts
 #font
 font pango:Iosevka Nerd Font 10
 
-#Rofi 
-set $menu wofi --show=drun --lines=5 --prompt=""
-
+#Rofi set $menu wofi --show=drun --lines=5 --prompt=""
+set $menu rofi -show drun 
 #keys
 set $external_key Control
 set $modifier_key Shift
@@ -62,7 +61,7 @@ output $secondary resolution 1920x1080
     bindsym $mod+w kill
 
     # Start your launcher
-    bindsym $mod+space exec $menu
+    bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -148,7 +147,7 @@ output $secondary resolution 1920x1080
     workspace 5 output $secondary
    
 
-    bindsym $mod+i exec $path_scripts/rename_workspace.sh $path_scripts
+   
 #------------------------- Layout stuff ----------------------------------
 #
     # You can "split" the current object of your focus with
@@ -169,7 +168,7 @@ output $secondary resolution 1920x1080
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+t focus mode_toggle
+    bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -210,17 +209,7 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-# -----------------------------Scratchpad -------------------------------
-#
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
 
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
 
 #
 # ----------------------------------Status Bar --------------------------------
@@ -239,12 +228,12 @@ bindsym $mod+r mode "resize"
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
-# bar {
-#   position top
-#   swaybar_command waybar 
-# }
+bar {
+  position top
+  swaybar_command waybar
+}
 # -----------------------------Lockscreen-----------------------------
-bindsym $mod+l exec bash /home/edgardoyoliani/.config/sway/backup/lock.sh
+#bindsym $mod+z exec bash /home/edgardoyoliani/.config/sway/backup/lock.sh
 
 #------------------------------- Media controls-----------------------------
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
@@ -261,10 +250,8 @@ bindsym XF86MonBrightnessDown exec light -U 1
 
 # --------------------------------Utilities -------------------------
 exec dunst &
-exec wl-paste -t text --watch clipman store --no-persis
-exec playerctld &
-exec waybar
-
-
+#exec wl-paste -t text --watch clipman store --no-persis 
+#exec playerctld 
+#exec waybar 
 
 include /etc/sway/config.d/*

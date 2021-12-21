@@ -40,7 +40,7 @@ shadow-exclude = [
 #################################
 
 
-fading = false;
+fading = true;
 
 #fade-in-step = 0.056;
 fade-in-step = 0.040;
@@ -142,7 +142,7 @@ glx-copy-from-front = false;
 glx-no-rebind-pixmap = true;
 #backend = "xrender";
 
-vsync = false
+vsync = true;
 
 
 # mark-wmwin-focused = false
@@ -169,7 +169,7 @@ detect-transient = true;
 #
 # detect-client-leader = false
 detect-client-leader = true;
-use-damage = true;
+#use-damage = true;
 
 
 log-level = "warn";
