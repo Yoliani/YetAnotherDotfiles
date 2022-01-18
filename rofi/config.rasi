@@ -4,9 +4,9 @@
  *******************************************************/
 
 configuration {
-    font:				"Sourcecode Pro Regular 10";
+    font:				"Iosevka Nerd Font 10";
     show-icons:				true;
-    icon-theme:				"Arc-X-D";
+    icon-theme:				"tela";
     display-drun:			"Apps";
     drun-display-format:		"{name}";
     scroll-method:			0;
@@ -14,7 +14,7 @@ configuration {
     sidebar-mode:			false;
 }
 
-@import "~/.config/rofi/arc_dark_transparent_colors.rasi"
+@import "~/Workspace/Github/rofi-catppuccin/catppuccin.rasi"
 
 window {
     background-color: @background;
@@ -22,8 +22,8 @@ window {
     padding:          30;
 }
 listview {
-    lines:                          10;
-    columns:                        3;
+    lines:                          8;
+    columns:                        2;
 }
 mainbox {
     border:  0;

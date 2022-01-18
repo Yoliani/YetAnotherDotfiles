@@ -2,7 +2,7 @@ env:
   TERM: xterm-256color
 shell:
   program: /bin/zsh
-background_opacity: 0.98
+background_opacity: 0.9
 
 colors:
   # Default colors
@@ -44,6 +44,7 @@ font:
     #family: VictorMono Nerd Font
     #family: JetBrains Mono Nerd Font
     family: Operator Mono Nerd Font
+    #family: Iosevka Nerd Font
     #family: Hack NF
     style: Regular
   size: 12

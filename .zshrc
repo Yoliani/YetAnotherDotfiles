@@ -126,6 +126,9 @@ export TERM="xterm-256color"
 export PATH=$PATH:$HOME/go/bin/
 export PATH=$PATH:$HOME/.local/kitty.app/bin/ 
 export PATH="$(yarn global bin):$PATH"
+ 
+export PATH=$PATH:$HOME/flutter/bin
+export PROJECTS_DIR=$HOME/Workspace/
 #
 alias ..='cd ..'
 alias sl='ls'
