@@ -15,7 +15,10 @@ export ZSH="/home/edgardoyoliani/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="amuse"
+#ZSH_THEME="amuse"
+
+#source ~/.dotfile/zsh/themes/yoliani.zsh-theme
+ZSH_THEME="yoliani"
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -195,3 +198,5 @@ alias c='clear'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias luamake=/home/edgardoyoliani/Descargas/gitlsp/lua-language-server/3rd/luamake/luamake
+
+[[ -s "/home/edgardoyoliani/.gvm/scripts/gvm" ]] && source "/home/edgardoyoliani/.gvm/scripts/gvm"
