@@ -44,15 +44,15 @@ cursor:
   style: Block
 font:
   normal:
+    family: Liga SFMono Nerd Font
     #family: SauceCodePro Nerd Font
-    #family: Liga SFMono Nerd Font
     #family: VictorMono Nerd Font
     #family: JetBrains Mono Nerd Font
-    family: Operator Mono Nerd Font
+    #family: Operator Mono Nerd Font
     #family: Iosevka Nerd Font
     #family: Hack NF
     style: Regular
-  size: 12
+  size: 12.5
   ligatures: true
   offset:
     x: 0
