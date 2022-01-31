@@ -1,0 +1,39 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.config:
+      force: true
+      glob: true
+      path: config/**
+    ~/.config/alacritty: alacritty
+    ~/.config/conky: conky
+    ~/.config/awesome: awesome
+    ~/.config/bspwm: bspwm
+    ~/.config/sxhkd: sxhkd
+    ~/.config/kitty: kitty
+    ~/.config/lf: lf
+    ~/.config/dunst: dunst
+    ~/.config/contour: contour
+    ~/.config/nvim: nvim
+    ~/.config/picom: config/picom
+    ~/.config/rofi: config/rofi
+    ~/.tmux.conf: .tmux.conf
+    ~/config/.zshrc: zsh/.zshrc
+    ~/config/wezterm: wezterm
+    ~/.scripts/ : .scripts
+
+
+# - create:
+
+- shell:
+  - [git submodule update --init --recursive, Updating dotbot]
+  -
+    command: python ./scripts
+    stdin: true
+    stdout: true
+    description: Installing packages
+    quiet: false
