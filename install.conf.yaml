@@ -1,5 +1,7 @@
 - defaults:
     link:
+      create: true
+      force: true
       relink: true
 
 - clean: ['~']
@@ -19,9 +21,10 @@
     ~/.config/dunst: dunst
     ~/.config/contour: contour
     ~/.config/nvim: nvim
-    ~/.config/picom: config/picom
-    ~/.config/rofi: config/rofi
+    ~/.config/picom: picom
+    ~/.config/rofi: rofi
     ~/.tmux.conf: .tmux.conf
+    ~/.oh-my-zsh/themes/yoliani.zsh-theme: zsh/themes/yoliani.zsh-theme 
     ~/config/.zshrc: zsh/.zshrc
     ~/config/wezterm: wezterm
     ~/.scripts/ : .scripts
@@ -31,9 +34,4 @@
 
 - shell:
   - [git submodule update --init --recursive, Updating dotbot]
-  -
-    command: python ./scripts
-    stdin: true
-    stdout: true
-    description: Installing packages
-    quiet: false
+

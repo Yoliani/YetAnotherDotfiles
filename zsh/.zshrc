@@ -200,3 +200,4 @@ alias c='clear'
 alias luamake=/home/edgardoyoliani/Descargas/gitlsp/lua-language-server/3rd/luamake/luamake
 
 [[ -s "/home/edgardoyoliani/.gvm/scripts/gvm" ]] && source "/home/edgardoyoliani/.gvm/scripts/gvm"
+export PATH="$PATH:$HOME/.spicetify"
