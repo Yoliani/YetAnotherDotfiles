@@ -125,11 +125,11 @@ export PATH=$PATH:/home/edgardoyoliani/.cargo/env
 export PATH=$PATH:$PATH:$HOME/.scripts
 export EDITOR="nvim"
 export EDITOR=nvim
-export TERM="xterm-256color"
+[[ $TMUX != "" ]] && export TERM="screen-256color"
 export PATH=$PATH:$HOME/go/bin/
 export PATH=$PATH:$HOME/.local/kitty.app/bin/ 
 export PATH="$(yarn global bin):$PATH"
- 
+export PATH=$PATH:$HOME/Descargas/idea-IU-213.6777.52/bin/
 export PATH=$PATH:$HOME/flutter/bin
 export PROJECTS_DIR=$HOME/Workspace/
 #
@@ -186,6 +186,7 @@ alias now='date +"%T"'
 alias update='sudo apt update && sudo apt upgrade'
 alias sudo='sudo ' # permite expansión de alias tras sudo
 alias genpassword="openssl rand -base64 20"
+
 #
 
 #alias nvconfig ="cd $NEOVIM && nvim init.lua "
@@ -201,3 +202,5 @@ alias luamake=/home/edgardoyoliani/Descargas/gitlsp/lua-language-server/3rd/luam
 
 [[ -s "/home/edgardoyoliani/.gvm/scripts/gvm" ]] && source "/home/edgardoyoliani/.gvm/scripts/gvm"
 export PATH="$PATH:$HOME/.spicetify"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
