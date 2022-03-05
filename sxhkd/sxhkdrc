@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-  kitty -T "Terminal" -e "$HOME/.config/sxhkd/new_tmux_terminal.sh"
+  alacritty -t "Terminal" -e "$HOME/.config/sxhkd/new_tmux_terminal.sh"
  
 #kitty -T "Terminal" -e "$HOME/.config/sxhkd/new_tmux_terminal.sh"
 	

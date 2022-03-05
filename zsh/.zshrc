@@ -81,14 +81,17 @@ ZSH_THEME="yoliani"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# export NVM_LAZY_LOAD=true
+# export NVM_COMPLETION=true
 plugins=(
 	git 
 	zsh-autosuggestions 
 	z 
 	git-prompt
 	zsh-syntax-highlighting
+  # zsh-nvm
 	#autojump
-	web-search
+	#web-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -121,6 +124,7 @@ source $ZSH/oh-my-zsh.sh
 #PATHS 
 export PATH=$PATH:/home/edgardoyoliani/.local/share/gem/ruby/3.0.0/bin
 export PATH=$PATH:/home/edgardoyoliani/.cargo/env
+export PATH=$PATH:$HOME/.rbenv/shims/
 #correr php 
 export PATH=$PATH:$PATH:$HOME/.scripts
 export EDITOR="nvim"
@@ -172,6 +176,12 @@ check_params() {
 
 }
 
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+
 # detach all the clients from this session, and attach to it.
 reattach_client() {
        check_params $# 1 "reattach_client <tmux_session_name>"
@@ -204,3 +214,21 @@ alias luamake=/home/edgardoyoliani/Descargas/gitlsp/lua-language-server/3rd/luam
 export PATH="$PATH:$HOME/.spicetify"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# Load all of the plugins that were defined in ~/.zshrc
+profiler_zsh() {
+ for plugin ($plugins); do
+  timer=$(python -c 'from time import time; print(int(round(time() * 1000)))')
+
+  if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
+    source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
+  elif [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
+    source $ZSH/plugins/$plugin/$plugin.plugin.zsh
+  fi
+  now=$(python -c 'from time import time; print(int(round(time() * 1000)))')
+
+  elapsed=$(($now-$timer))
+  echo $elapsed":" $plugin
+done
+}
+
