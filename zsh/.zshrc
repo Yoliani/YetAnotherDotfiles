@@ -215,3 +215,8 @@ alias dcew="dc exec web"
 alias dcrw="dc run web"
 alias dcewr="dc exec web rspec"
 alias cop="git add -N .; git diff --name-only | egrep '.rb$' | xargs rubocop"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source /home/guarapolabs/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

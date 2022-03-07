@@ -47,10 +47,9 @@ polybar -c /home/guarapolabs/.config/polybar/config.ini -rq bar &
 #polybar example
 #Custom
 bspc config focus_follows_pointer true
-xrandr --output --primary HDMI-A-0 --mode 3286x1080 --rotate normal --brightness 1.0 --output eDP  --mode 1366x768 --rotate normal  --brightness 1.0 --left-of HDMI-A-0 
-bspc monitor eDP -d 1 2 3 4 5 
-bspc monitor HDMI-A-0 -d 6 7 8 9 0 
-
+xrandr --output eDP --primary --mode 3286x1080 --rotate normal --output HDMI-A-0 --mode 1920x1080 --rotate normal --right-of eDP
+bspc monitor HDMI-A-0 -d 6 7 8 9 0
+bspc monitor eDP -d 1 2 3 4 5
 
 
 #Windows rules
@@ -64,4 +63,8 @@ feh --bg-fill /home/guarapolabs/.dotfile/wallpapers/favorite.jpg
 xsetroot -cursor_name left_ptr &
 picom --experimental-backends &
 bspc config border_with 0.3
-setxkbmap -option grp:alt_shift_toggle es,us &
+
+my_laptop_external_monitor=$(xrandr --query | grep '')
+if [[ $my_laptop_external_monitor = *connected* ]]; then
+    polybar top_external &
+fi
