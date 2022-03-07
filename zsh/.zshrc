@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/edgardoyoliani/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -122,19 +122,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #PATHS 
-export PATH=$PATH:/home/edgardoyoliani/.local/share/gem/ruby/3.0.0/bin
-export PATH=$PATH:/home/edgardoyoliani/.cargo/env
-export PATH=$PATH:$HOME/.rbenv/shims/
+export PATH=$PATH:$HOME/.cargo/env
 #correr php 
 export PATH=$PATH:$PATH:$HOME/.scripts
 export EDITOR="nvim"
 export EDITOR=nvim
 [[ $TMUX != "" ]] && export TERM="screen-256color"
-export PATH=$PATH:$HOME/go/bin/
-export PATH=$PATH:$HOME/.local/kitty.app/bin/ 
-export PATH="$(yarn global bin):$PATH"
-export PATH=$PATH:$HOME/Descargas/idea-IU-213.6777.52/bin/
-export PATH=$PATH:$HOME/flutter/bin
 export PROJECTS_DIR=$HOME/Workspace/
 #
 alias ..='cd ..'
@@ -151,16 +144,6 @@ alias gs='git status'
 alias gcm='git commit -m'
 alias gp='git push'
 alias chrome='google-chrome-stable'
-
-
-alias ls='logo-ls'
-alias la='logo-ls -A'
-alias ll='logo-ls -al'
-# equivalents with Git Status on by Default
-alias ilsg='logo-ls -D'
-alias ilag='logo-ls -AD'
-alias illg='logo-ls -alD'
-
 function acp() {
   git add .
   git commit -m "$1"
@@ -208,10 +191,7 @@ alias c='clear'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-alias luamake=/home/edgardoyoliani/Descargas/gitlsp/lua-language-server/3rd/luamake/luamake
 
-[[ -s "/home/edgardoyoliani/.gvm/scripts/gvm" ]] && source "/home/edgardoyoliani/.gvm/scripts/gvm"
-export PATH="$PATH:$HOME/.spicetify"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
@@ -231,4 +211,7 @@ profiler_zsh() {
   echo $elapsed":" $plugin
 done
 }
-
+alias dcew="dc exec web"
+alias dcrw="dc run web"
+alias dcewr="dc exec web rspec"
+alias cop="git add -N .; git diff --name-only | egrep '.rb$' | xargs rubocop"
