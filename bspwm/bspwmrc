@@ -37,7 +37,6 @@ sxhkd -c &
 picom &
 killall "polybar"
 killall "conky" 
-
 #polybar bytee &
 #polybar bytee2 &
 #polybar -c /home/edgardoyoliani/.config/polybar/placidity-plus/config.ini main &
@@ -47,9 +46,10 @@ polybar -c /home/guarapolabs/.config/polybar/config.ini -rq bar &
 #polybar example
 #Custom
 bspc config focus_follows_pointer true
-xrandr --output --primary HDMI-A-0 --mode 3286x1080 --rotate normal --brightness 1.0 --output eDP  --mode 1366x768 --rotate normal  --brightness 1.0 --left-of HDMI-A-0 
-bspc monitor eDP -d 1 2 3 4 5 
-bspc monitor HDMI-A-0 -d 6 7 8 9 0 
+xrandr --primary --output  HDMI-A-0 --mode 3286x1080 --rotate normal  --rate 75.00 
+xrandr --output eDP --mode 1366x768 --rotate normal  --brightness 1.0 --left-of HDMI-A-0 
+bspc monitor eDP -d I II III IV V 
+bspc monitor HDMI-A-0 -d VI VII VII IX 0 
 
 
 
@@ -58,7 +58,7 @@ bspc rule -a Pavucontrol state=floating rectangle 800x800+50+50 sticky=off
 
 #~/.config/polybar/./launch.sh
 #~/.scripts/./start_conky.sh
-feh --bg-fill /home/guarapolabs/.dotfile/wallpapers/favorite.jpg
+feh --bg-fill /home/guarapolabs/.dotfile/wallpapers/galaxia_2560x1600_xtrafondos.com.jpg
 #nitrogen --restore &
 #xwinwrap -g 1920x1080 -ov -- mpv -wid WID ~/.wallpapers/water.mp4
 xsetroot -cursor_name left_ptr &

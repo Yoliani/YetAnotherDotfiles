@@ -4,14 +4,14 @@
 
 # terminal emulator
 super + Return
-  alacritty -t "Terminal" -e "$HOME/.config/sxhkd/new_tmux_terminal.sh"
+  kitty -T "Terminal" -e "$HOME/.config/sxhkd/new_tmux_terminal.sh"
  
 #kitty -T "Terminal" -e "$HOME/.config/sxhkd/new_tmux_terminal.sh"
 	
 #alacritty -t "Terminal" -e "$HOME/.config/sxhkd/new_tmux_terminal.sh"
 
 # program launcher
-super + @space
+super + space
 	rofi -show drun 
 
 # make sxhkd reload its configuration files:
@@ -67,6 +67,10 @@ super + ctrl + {m,x,y,z}
 #
 # focus/swap
 #
+	# Cycle desktops
+alt + ctrl + {Right,Down,Left,Up}
+  .desktop {next,next,prev,prev}
+
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
