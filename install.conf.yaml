@@ -7,10 +7,11 @@
 - clean: ['~']
 
 - link:
-    ~/.config:
-      force: true
-      glob: true
-      path: config/**
+    # ~/.config:
+   #    force: true
+   #    glob: true
+   #    path: config/**
+  # Config directory
     ~/.config/alacritty: alacritty
     ~/.config/conky: conky
     ~/.config/awesome: awesome
@@ -20,14 +21,19 @@
     ~/.config/lf: lf
     ~/.config/dunst: dunst
     ~/.config/contour: contour
-    ~/.config/nvim: nvim
     ~/.config/picom: picom
     ~/.config/rofi: rofi
     ~/.tmux.conf: .tmux.conf
-    ~/.oh-my-zsh/themes/yoliani.zsh-theme: zsh/themes/yoliani.zsh-theme 
-    ~/config/.zshrc: zsh/.zshrc
     ~/config/wezterm: wezterm
-    ~/.scripts/ : .scripts
+    ~/.zshrc: zsh/.zshrc
+    ~/.zshenv: zsh/.zshenv
+    ~/.zprofile: zsh/.zprofile
+    ~/.aliases: zsh/.aliases
+    ~/.functions: zsh/.functions
+  # Home directory
+    ~/.oh-my-zsh/themes/yoliani.zsh-theme: zsh/themes/yoliani.zsh-theme 
+    ~/.scripts : .scripts
+    ~/.vimrc: vim/.vimrc
 
 
 # - create:

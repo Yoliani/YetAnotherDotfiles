@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -19,6 +19,7 @@ export ZSH="/home/edgardoyoliani/.oh-my-zsh"
 
 #source ~/.dotfile/zsh/themes/yoliani.zsh-theme
 ZSH_THEME="yoliani"
+ZSH_CACHE_DIR=$ZSH/cache
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -89,9 +90,6 @@ plugins=(
 	z 
 	git-prompt
 	zsh-syntax-highlighting
-  # zsh-nvm
-	#autojump
-	#web-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -103,24 +101,8 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 #PATHS 
 export PATH=$PATH:/home/edgardoyoliani/.local/share/gem/ruby/3.0.0/bin
 export PATH=$PATH:/home/edgardoyoliani/.cargo/env
@@ -131,104 +113,9 @@ export EDITOR="nvim"
 export EDITOR=nvim
 [[ $TMUX != "" ]] && export TERM="screen-256color"
 export PATH=$PATH:$HOME/go/bin/
-export PATH=$PATH:$HOME/.local/kitty.app/bin/ 
 export PATH="$(yarn global bin):$PATH"
-export PATH=$PATH:$HOME/Descargas/idea-IU-213.6777.52/bin/
-export PATH=$PATH:$HOME/flutter/bin
 export PROJECTS_DIR=$HOME/Workspace/
-#
-alias ..='cd ..'
-alias sl='ls'
-#alias ll='ls -Ahl'
-alias mv='mv -v'
-alias rm='rm -vi'
-alias cp='cp -v'
-alias usage='du -sh'
-#alias nv5 = '. /Descargas/nvim.appimage'
-# Control de cambios Git
-alias bat='batcat '
-alias gs='git status'
-alias gcm='git commit -m'
-alias gp='git push'
-alias chrome='google-chrome-stable'
-
-
-alias ls='logo-ls'
-alias la='logo-ls -A'
-alias ll='logo-ls -al'
-# equivalents with Git Status on by Default
-alias ilsg='logo-ls -D'
-alias ilag='logo-ls -AD'
-alias illg='logo-ls -alD'
-
-function acp() {
-  git add .
-  git commit -m "$1"
-  git push
-}
-check_params() {
-       if [[ $1 < $2 ]]; then
-               echo -e "Usage:\n${3}"
-               ok=0
-       else
-               ok=1
-       fi
-
-}
-
-timezsh() {
-  shell=${1-$SHELL}
-  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
-}
-
-
-# detach all the clients from this session, and attach to it.
-reattach_client() {
-       check_params $# 1 "reattach_client <tmux_session_name>"
-       if [[ $ok == 1 ]]; then
-               tmux list-client | grep $1 | awk '{split($1, s, ":"); print s[1]}' | xargs tmux detach-client -t | true
-               tmux attach -t $1
-       fi
-}
-# Utilidades
-alias psa='ps aux'
-alias now='date +"%T"'
-alias update='sudo apt update && sudo apt upgrade'
-alias sudo='sudo ' # permite expansión de alias tras sudo
-alias genpassword="openssl rand -base64 20"
-
-#
-
-#alias nvconfig ="cd $NEOVIM && nvim init.lua "
-alias c='clear'
-
-#alias at='alacritty-themes'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-alias luamake=/home/edgardoyoliani/Descargas/gitlsp/lua-language-server/3rd/luamake/luamake
 
 [[ -s "/home/edgardoyoliani/.gvm/scripts/gvm" ]] && source "/home/edgardoyoliani/.gvm/scripts/gvm"
-export PATH="$PATH:$HOME/.spicetify"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-
-# Load all of the plugins that were defined in ~/.zshrc
-profiler_zsh() {
- for plugin ($plugins); do
-  timer=$(python -c 'from time import time; print(int(round(time() * 1000)))')
-
-  if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
-    source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
-  elif [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
-    source $ZSH/plugins/$plugin/$plugin.plugin.zsh
-  fi
-  now=$(python -c 'from time import time; print(int(round(time() * 1000)))')
-
-  elapsed=$(($now-$timer))
-  echo $elapsed":" $plugin
-done
-}
-

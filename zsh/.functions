@@ -1,0 +1,92 @@
+#!/bin/bash
+#
+# Combine images horizontally
+# Example: hcombine my_image.jpg my_image2.jpg
+function hcombine {
+    filename=$(basename -- "$1")
+    extension="${filename##*.}"
+    dt=`date +"%Y-%m-%d %H.%M.%S"`
+    convert +append $1 $2 -gravity center +append "${dt}.${extension}"
+}
+
+# Combine images vertically
+# Example: vcombine my_image.jpg my_image2.jpg
+function vcombine {
+    filename=$(basename -- "$1")
+    extension="${filename##*.}"
+    dt=`date +"%Y-%m-%d %H.%M.%S"`
+    convert $1 $2 -gravity center -append "${dt}.${extension}"
+}
+
+# Test that 256 colors are working in the terminal
+function col {
+    echo -e 'Should be a smooth gradient:'
+    awk 'BEGIN{
+        s="/\\/\\/\\/\\/\\"; s=s s s s s s s s;
+        for (colnum = 0; colnum<77; colnum++) {
+            r = 255-(colnum*255/76);
+            g = (colnum*510/76);
+            b = (colnum*255/76);
+            if (g>255) g = 510-g;
+            printf "\033[48;2;%d;%d;%dm", r,g,b;
+            printf "\033[38;2;%d;%d;%dm", 255-r,255-g,255-b;
+            printf "%s\033[0m", substr(s,colnum+1,1);
+        }
+        printf "\n";
+    }'
+}
+
+# Copy the pwd
+function cpwd() {
+    pwd | pbcopy
+}
+
+
+# Load all of the plugins that were defined in ~/.zshrc
+profiler_zsh() {
+ for plugin ($plugins); do
+  timer=$(python -c 'from time import time; print(int(round(time() * 1000)))')
+
+  if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
+    source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
+  elif [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
+    source $ZSH/plugins/$plugin/$plugin.plugin.zsh
+  fi
+  now=$(python -c 'from time import time; print(int(round(time() * 1000)))')
+
+  elapsed=$(($now-$timer))
+  echo $elapsed":" $plugin
+done
+}
+
+function acp() {
+  git add .
+  git commit -m "$1"
+  git push
+}
+check_params() {
+       if [[ $1 < $2 ]]; then
+               echo -e "Usage:\n${3}"
+               ok=0
+       else
+               ok=1
+       fi
+
+}
+
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+
+# detach all the clients from this session, and attach to it.
+reattach_client() {
+       check_params $# 1 "reattach_client <tmux_session_name>"
+       if [[ $ok == 1 ]]; then
+               tmux list-client | grep $1 | awk '{split($1, s, ":"); print s[1]}' | xargs tmux detach-client -t | true
+               tmux attach -t $1
+       fi
+}
+
+

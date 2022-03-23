@@ -1,0 +1,34 @@
+alias ..='cd ..'
+alias sl='ls'
+#alias ll='ls -Ahl'
+alias mv='mv -v'
+alias rm='rm -vi'
+alias cp='cp -v'
+alias usage='du -sh'
+#alias nv5 = '. /Descargas/nvim.appimage'
+# Control de cambios Git
+alias bat='batcat '
+alias gs='git status'
+alias gcm='git commit -m'
+alias gp='git push'
+alias chrome='google-chrome-stable'
+
+
+alias ls='logo-ls'
+alias la='logo-ls -A'
+alias ll='logo-ls -al'
+# equivalents with Git Status on by Default
+alias ilsg='logo-ls -D'
+alias ilag='logo-ls -AD'
+alias illg='logo-ls -alD'
+# Utilidades
+alias psa='ps aux'
+alias now='date +"%T"'
+alias update='sudo apt update && sudo apt upgrade'
+alias sudo='sudo ' # permite expansión de alias tras sudo
+alias genpassword="openssl rand -base64 20"
+
+#
+
+#alias nvconfig ="cd $NEOVIM && nvim init.lua "
+alias c='clear'
