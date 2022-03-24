@@ -39,5 +39,6 @@
 # - create:
 
 - shell:
-  - [git submodule update --init --recursive, Updating dotbot]
+  - [git submodule update --init --recursive, Installing submodules]
+
 
