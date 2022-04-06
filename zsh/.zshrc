@@ -116,6 +116,5 @@ export PATH=$PATH:$HOME/go/bin/
 export PATH="$(yarn global bin):$PATH"
 export PROJECTS_DIR=$HOME/Workspace/
 
-[[ -s "/home/edgardoyoliani/.gvm/scripts/gvm" ]] && source "/home/edgardoyoliani/.gvm/scripts/gvm"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

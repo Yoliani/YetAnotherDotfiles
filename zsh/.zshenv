@@ -11,3 +11,5 @@ fi
 for file in ~/.{aliases,functions}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
+
+[[ -s "/home/edgardoyoliani/.gvm/scripts/gvm" ]] && source "/home/edgardoyoliani/.gvm/scripts/gvm"
