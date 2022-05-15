@@ -1,4 +1,4 @@
-[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+#[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 if [ "$SSH_CONNECTION" ]; then
     export EDITOR='nvim'
@@ -12,4 +12,4 @@ for file in ~/.{aliases,functions}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 
-[[ -s "/home/edgardoyoliani/.gvm/scripts/gvm" ]] && source "/home/edgardoyoliani/.gvm/scripts/gvm"
+#[[ -s "/home/edgardoyoliani/.gvm/scripts/gvm" ]] && source "/home/edgardoyoliani/.gvm/scripts/gvm"
