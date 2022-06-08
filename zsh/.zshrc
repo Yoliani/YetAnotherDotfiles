@@ -179,7 +179,7 @@ alias now='date +"%T"'
 alias update='sudo apt update && sudo apt upgrade'
 alias sudo='sudo ' # permite expansión de alias tras sudo
 alias genpassword="openssl rand -base64 20"
-
+alias vimdiff='nvim -d'
 #
 
 #alias nvconfig ="cd $NEOVIM && nvim init.lua "
